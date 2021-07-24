@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
-import django_heroku
+# import django_heroku
 
 from pathlib import Path
 
@@ -100,24 +100,24 @@ WSGI_APPLICATION = 'Etech_Blog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-
-DATABASE = {
+DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dcbkbmb939bc5m',
-        'USER': 'ayxcwtkvqalvvp',
-        'PASSWORD': '18b9516aed40b8736a73a5a472237bd8fbbd0ad50af901ff83a8edb68cf9aa46',
-        'HOST': 'ec2-34-204-128-77.compute-1.amazonaws.com',
-        'PORT': '5432', 
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
+# DATABASE = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'dcbkbmb939bc5m',
+#         'USER': 'ayxcwtkvqalvvp',
+#         'PASSWORD': '18b9516aed40b8736a73a5a472237bd8fbbd0ad50af901ff83a8edb68cf9aa46',
+#         'HOST': 'ec2-34-204-128-77.compute-1.amazonaws.com',
+#         'PORT': '5432', 
+#     }
+# }
 
 
 # Password validation
@@ -159,7 +159,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -169,4 +169,4 @@ SITE_ID = 1 #7
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # new
 AUTH_USER_MODEL = 'users.User'
 ROLEPERMISSIONS_MODULE = 'users.roles'
-ROLEPERMISSIONS_MODULE = 'Etech_Blog.roles'
+# ROLEPERMISSIONS_MODULE = 'Etech_Blog.roles'
