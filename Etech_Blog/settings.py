@@ -101,12 +101,12 @@ WSGI_APPLICATION = 'Etech_Blog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 # DATABASE = {
@@ -120,9 +120,9 @@ WSGI_APPLICATION = 'Etech_Blog.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': dj_database_url.config()
-}
+# DATABASES = {
+#     'default': dj_database_url.config()
+# }
 
 
 db_from_env = dj_database_url.config(conn_max_age=10000)
