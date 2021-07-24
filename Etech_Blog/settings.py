@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
-# import django_heroku
+import django_heroku
+import dj_database_url
 
 from pathlib import Path
 
@@ -100,12 +101,12 @@ WSGI_APPLICATION = 'Etech_Blog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # DATABASE = {
@@ -118,6 +119,10 @@ DATABASES = {
 #         'PORT': '5432', 
 #     }
 # }
+
+DATABASES = {
+    'default': dj_database_url.config()
+}
 
 
 # Password validation
@@ -159,7 +164,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-# django_heroku.settings(locals())
+django_heroku.settings(locals())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
