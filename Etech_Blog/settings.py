@@ -54,6 +54,9 @@ INSTALLED_APPS = [
     'dj_rest_auth.registration', # new
     'drf_yasg', # new
     'rolepermissions', #new
+    'rest_auth', #new
+    'allauth.socialaccount.providers.facebook', #new
+    # 'allauth.socialaccount.providers.twitter', #new
 ]
 
 # new
