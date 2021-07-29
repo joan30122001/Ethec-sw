@@ -27,6 +27,5 @@ class Comment(models.Model):
 
 
 class Category(models.Model):
-    name = models.CharField(max_length = 255)
+    title = models.CharField(max_length = 255)
     description = models.TextField()
-    article = models.ManyToManyField(Article, blank=True)
