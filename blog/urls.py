@@ -5,4 +5,6 @@ from .views import ArticleList,  ArticleDetail
 urlpatterns = [
     path('article/', views.ArticleList.as_view()),
     path('article/<int:pk>/', views.ArticleDetail.as_view()),
+    path('comments/', views.CommentList.as_view()),
+    path('comments/<int:pk>/', views.CommentDetail.as_view()),
 ]

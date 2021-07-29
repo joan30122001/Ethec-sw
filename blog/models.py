@@ -12,3 +12,21 @@ class Article(models.Model):
 
     class Meta:
         ordering = ['created_at']
+
+
+
+class Comment(models.Model):
+    contain = models.TextField()
+    article = models.ForeignKey(Article, on_delete = models.CASCADE)
+    user = models.ForeignKey(User, on_delete = models.CASCADE)
+    created_at = models.DateTimeField(auto_now=False, auto_now_add=False)
+
+    class Meta:
+        ordering = ['created_at']
+
+
+
+class Category(models.Model):
+    name = models.CharField(max_length = 255)
+    description = models.TextField()
+    article = models.ManyToManyField(Article, blank=True)
