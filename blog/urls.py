@@ -1,10 +1,15 @@
 from django.urls import path
 from blog import views
-from .views import ArticleList,  ArticleDetail
+from .views import ArticleViewSet
 
 urlpatterns = [
-    path('article/', views.ArticleList.as_view()),
-    path('article/<int:pk>/', views.ArticleDetail.as_view()),
-    path('comments/', views.CommentList.as_view()),
-    path('comments/<int:pk>/', views.CommentDetail.as_view()),
+   path("article" , ArticleViewSet.as_view({
+        "get":"list",
+        "post":"create"
+    })),
+    path('article/<str:pk>', ArticleViewSet.as_view({
+        'get': "retrieve",
+        'put': 'update',
+        'delete': 'destroy'
+    })),
 ]

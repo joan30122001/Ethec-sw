@@ -7,9 +7,9 @@ from rest_framework.serializers import SerializerMethodField
 
 
 
-class CategorySerializer(serializers.ModelSerilaizer):
-    user = serializers.ReadOnlyField(source = 'user.username')
-    article = serializers.PrimaryKeyRelatedField(many = True, read_only = True)
+# class CategorySerializer(serializers.ModelSerializer):
+#     user = serializers.ReadOnlyField(source = 'user.username')
+#     article = serializers.PrimaryKeyRelatedField(many = True, read_only = True)
 
 
 class ArticleSerializer(serializers.ModelSerializer):
@@ -30,7 +30,7 @@ class CommentSerializer(serializers.ModelSerializer):
 
 
 
-class CategorySerializer(serializers.ModelSerilaizer):
+class CategorySerializer(serializers.ModelSerializer):
     user = serializers.ReadOnlyField(source = 'user.username')
     article = serializers.PrimaryKeyRelatedField(many = True, read_only = True)
 
