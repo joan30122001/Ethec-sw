@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'rest_auth', #new
     'allauth.socialaccount.providers.facebook', #new
     # 'allauth.socialaccount.providers.twitter', #new
+    'blog' #new
 ]
 
 # new
