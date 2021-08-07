@@ -29,3 +29,26 @@ class Comment(models.Model):
 class Category(models.Model):
     title = models.CharField(max_length = 255)
     description = models.TextField()
+
+
+
+class Article_category(models.Model):
+    article = models.ManyToManyField(Article)
+    category = models.ManyToManyField(Category)
+
+
+
+class Like(models.Model):
+    # emoji = models.CharField(max_length = 255)
+    user = models.ForeignKey(User, on_delete = models.CASCADE)
+    article = models.ForeignKey(Article, on_delete = models.CASCADE)
+
+
+class Tag(models.Model): 
+    name = models.CharField(max_length = 255)
+
+
+
+class Article_tag(models.Model):
+    article = models.ManyToManyField(Article)
+    tag = models.ManyToManyField(Tag)

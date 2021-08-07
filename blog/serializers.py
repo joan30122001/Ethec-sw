@@ -1,5 +1,5 @@
 from rest_framework import serializers 
-from .models import Article, Comment, Category
+from .models import Article, Comment, Category, Like, Tag
 from users.models import User
 from rest_framework import serializers
 from users.serializers import UserDetailsSerializer
@@ -31,7 +31,24 @@ class CommentSerializer(serializers.ModelSerializer):
 
 
 class CategorySerializer(serializers.ModelSerializer):
-    user = serializers.ReadOnlyField(source = 'user.username')
+    
+    class Meta:
+        model = Category
+        fields = ['tilte', 'description']
+
+
+
+class LikeSerializer(serializers.ModelSerializer):
     article = serializers.PrimaryKeyRelatedField(many = True, read_only = True)
 
+    class Meta:
+        model = Like
+        fields = ['id', 'user', 'article']
 
+
+
+class TagSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Tag
+        fields = ['id', 'name']
