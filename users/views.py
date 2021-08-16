@@ -5,6 +5,7 @@ from django.shortcuts import render
 from functools import wraps
 
 from django.conf import settings
+from django.http import HttpResponse
 from django.contrib.auth.views import redirect_to_login as dj_redirect_to_login
 from django.core.exceptions import PermissionDenied
 
@@ -15,6 +16,7 @@ from allauth.socialaccount.providers.facebook.views import FacebookOAuth2Adapter
 from rest_auth.registration.views import SocialLoginView
 
 from allauth.socialaccount.providers.github.views import GitHubOAuth2Adapter
+from allauth.socialaccount.providers.google.views import GoogleOAuth2Adapter
 from allauth.socialaccount.providers.oauth2.client import OAuth2Client
 from rest_auth.registration.views import SocialLoginView
 
@@ -65,7 +67,13 @@ class FacebookLogin(SocialLoginView):
 
 
 
-# class GithubLogin(SocialLoginView):
-#     adapter_class = GitHubOAuth2Adapter
-#     callback_url = CALLBACK_URL_YOU_SET_ON_GITHUB
-#     client_class = OAuth2Client
+class GithubLogin(SocialLoginView):
+    adapter_class = GitHubOAuth2Adapter
+    callback_url = "https://github.com/login"
+    client_class = OAuth2Client
+
+
+class GoogleLogin(SocialLoginView):
+    adapter_class = GoogleOAuth2Adapter
+    callback_url = "http://localhost:3000"
+    client_class = OAuth2Client
